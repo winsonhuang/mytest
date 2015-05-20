@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<info>
+	<explain>163</explain>
+		<url>http://mail.163.com</url>
+		<null uname="" psd="">请先输入您的邮箱帐号</null>
+		<null_uname uname="" psd="abc"></null_uname>
+		<null_psd uname="shengsing" psd=""></null_psd>
+		<err uname="xxx" psd="xxx"></err>
+</info>
