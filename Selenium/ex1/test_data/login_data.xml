@@ -3,7 +3,7 @@
 	<explain>163</explain>
 		<url>http://mail.163.com</url>
 		<null uname="" psd="">请先输入您的邮箱帐号</null>
-		<null_uname uname="" psd="abc"></null_uname>
-		<null_psd uname="shengsing" psd=""></null_psd>
-		<err uname="xxx" psd="xxx"></err>
+		<null_uname uname="" psd="abc">请先输入您的邮箱帐号</null_uname>
+		<null_psd uname="shengsing" psd="">请输入您的密码</null_psd>
+		<err uname="xxx" psd="xxx">帐号或密码错误</err>
 </info>
