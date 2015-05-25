@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import xml.dom.minidom as xdm
-dom = xdm.parse('..\\TestData\\login_data.xml')
+import xml.dom.minidom 
+#dom = xml.dom.minidom .parse("..\\TestData\\login_data.xml")
+
+dom = xml.dom.minidom .parse("../TestData/login_data.xml")
 root = dom.documentElement
 
 def login(self,uname,psd):
