@@ -6,4 +6,5 @@
 		<null_uname uname="" psd="abc">请输入账号</null_uname>
 		<null_psd uname="shengsing" psd="">请输入密码</null_psd>
 		<err uname="xxx" psd="xxx">账号格式不正确</err>
+		<nomal uname="15817311208" psd="123456"></nomal>
 </info>
