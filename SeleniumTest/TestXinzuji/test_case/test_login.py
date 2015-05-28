@@ -28,19 +28,19 @@ class test_Login(unittest.TestCase):
     def test_null(self):
         u'用户密码为空'
         login.keyadd(self, 'null')
-  
+   
     def test_null_psd(self):
         u'密码为空'
         login.keyadd(self, 'null_psd')
-  
+   
     def test_null_uname(self):
         u'用户名为空'
         login.keyadd(self, 'null_uname')
-  
+   
     def test_err(self):
         u'异常用户名密码'
         login.keyadd(self, 'err')
-       
+        
     def test_nomal(self):
         u'正常登录'
         login.keyadd(self,'nomal')

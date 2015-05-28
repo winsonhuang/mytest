@@ -8,10 +8,29 @@ Created on 2015年5月27日
 '''
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import unittest
 import HTMLTestRunner
 import time,os
 from email.header import Header
+
+# def attachment(filename):
+#     fd = file(filename,"rb")
+#     mimetype,mimeencoding = mimetypes.guess_type(filename)
+#     if mimeencoding or (mimetype is None):
+#         mimetype = "application/octet-stream"
+#     maintype,subtype = mimetype.split("/")
+#     
+#     if maintype == "text":
+#         retval = MIMEText(fd.read(),_subtype = subtype)
+#     else:
+#         # 如果不是text
+#         retval = MIMEBase(maintype,subtype)
+#         retval.set_payload(fd.read())
+#         Encoders.encode_base64(retval)
+#     retval.add_header("Content-Disposition","attachment",filename = filename)
+#     fd.close()
+#     return retval
 
 
 def send_mail(file_new):
@@ -21,25 +40,38 @@ def send_mail(file_new):
     PopServer = ' pop.exmail.qq.com'
     Sender ='<huasheng.huang@xinzuji.com>'
     uName='huasheng.huang@xinzuji.com'
-    passWD='504248573a'
+    passWd='504248573a'
     
-#    Receiver = 'yulong.ding@xinzuji.com@xinzuji.com'   
-    Receiver = 'huasheng.huang@xinzuji.com'
+    Receiver = 'yulong.ding@xinzuji.com@xinzuji.com'   
+#    Receiver = 'haohui.wang@xinzuji.com@xinzuji.com'   
+#  Receiver = 'huasheng.huang@xinzuji.com'
     Subject = u'Python Selenium自动化测试报告'
 
-    #send
-    f = open (file_new, 'rb')
-    mail_body = f.read()
-    f.close()
+
    
-    msg = MIMEText(mail_body,'html' , 'utf-8')
-    msg['Subject'] =Header (Subject, 'utf-8')
-    msg['date'] = time.strftime('%a, %d %b %Y %H:%M:%S %z')
+    msgRoot = MIMEMultipart()
+    msgRoot['Subject'] = Header (Subject, 'utf-8')
+    msgRoot['Date'] = time.strftime('%a, %d %b %Y %H:%M:%S %z')
+    msgRoot['To'] = Receiver
+    msgRoot['From'] = Sender
     
+    
+        #open HTML
+    body  = MIMEText(open (file_new, 'rb').read(),'html' , 'utf-8')
+    msgRoot.attach(body)
+    
+    # att
+
+    att = MIMEText(open('%s'%file_new, 'rb').read(), 'base64', 'utf-8')#添加附件
+    att["Content-Type"] = 'application/octet-stream'
+    att["Content-Disposition"] = 'attachment; filename="%s"'%file_new
+    msgRoot.attach(att)
+    
+    # struct email
     smtp = smtplib.SMTP()
     smtp.connect(SmtpServer)
-    smtp.login(uName, passWD)
-    smtp.sendmail(Sender, Receiver, msg.as_string())
+    smtp.login(uName, passWd)
+    smtp.sendmail(Sender, Receiver, msgRoot.as_string())
     smtp.quit()
 
 
