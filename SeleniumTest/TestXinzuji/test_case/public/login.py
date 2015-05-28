@@ -5,9 +5,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 # dom = xml.dom.minidom .parse("..\\TestData\\login_data.xml")
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
-from platform import uName
 
-dom = minidom.parse("../TestData/login_data.xml")
+dom = minidom.parse("/home/winson/git/mytest/SeleniumTest/TestXinzuji/test_data/login_data.xml")
 root = dom.documentElement
 
 
@@ -25,10 +24,10 @@ def keyadd(self, key):
     driver.get(self.base_url)
     logins = root.getElementsByTagName(key)
     uName = logins[0].getAttribute('uName')
-    psd = logins[0].getAttribute('psd')
+    passWd = logins[0].getAttribute('passWd')
     # prompt_info = logins[0].firstChild.data
 
-    login(self, uName, psd)
+    login(self, uName, passWd)
 
     # text = driver.find_element_by_xpath("//*[@id='txtErrorMessage']/p").text
     # text = driver.find_element_by_id('txtErrorMessage').text
@@ -37,14 +36,14 @@ def keyadd(self, key):
 
 def logout(self):
     driver = self.driver
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     
     logtxt = driver.find_element_by_class_name('isLogin')
-    
     # self.assertEqual(logtxt.text, '欢迎您\\n横村新技术开发区')
-    self.uname=u"横村新技术开发区"
-    # self.uName=unicode('横村新技术开发区' ,'utf-8')
-    assert self.uname in logtxt.text
+    #self.uname=u"横村新技术开发区"
+    self.uName=unicode('横村新技术开发区' ,'utf-8')
+    
+    assert self.uName in logtxt.text
     
     
     chain = ActionChains(driver)

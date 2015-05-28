@@ -79,4 +79,4 @@ if __name__ == '__main__':
     testreport= '/home/winson/test_object/report/'
     
     createTestReport(testreport)
-#    send_report(testreport)
+    send_report(testreport)

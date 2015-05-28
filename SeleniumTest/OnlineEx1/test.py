@@ -25,14 +25,7 @@ class Test(unittest.TestCase):
         self.driver.find_element_by_xpath("//*[@class='lb']").click()
         loginName = '15817311208'
         loginPsd = '123456'
-        
-#         uNameID = 'txtAccount'
-#         psdID = 'txtPassword'
-#         loginID = 'btnLogin'
-#         
-#         self.driver.find_element_by_id(uNameID).send_keys(loginName)
-#         self.driver.find_element_by_id(psdID).send_keys(loginPsd)
-#         self.driver.find_element_by_id(loginID).click()
+
 
 
 if __name__ == "__main__":

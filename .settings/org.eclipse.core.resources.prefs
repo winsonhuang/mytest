@@ -1,10 +1,12 @@
 eclipse.preferences.version=1
+encoding//FindBug/findbug.py=utf-8
 encoding//Selenium/ex1/test_case/public/login.py=utf-8
 encoding//Selenium/ex1/test_case/test_login.py=utf-8
 encoding//Selenium/ex1/test_reprot/all_test.py=utf-8
 encoding//SeleniumTest/OnlineEx1/test.py=utf-8
-encoding//SeleniumTest/TestXinzuji/TestCase/public/login.py=utf-8
-encoding//SeleniumTest/TestXinzuji/TestCase/test_login.py=utf-8
+encoding//SeleniumTest/TestXinzuji/sendTestReport.py=utf-8
+encoding//SeleniumTest/TestXinzuji/test_case/public/login.py=utf-8
+encoding//SeleniumTest/TestXinzuji/test_case/test_login.py=utf-8
 encoding//SeleniumTest/ex1/TestCase/public/login.py=utf-8
 encoding//SeleniumTest/ex1/TestCase/test_login.py=utf-8
 encoding//SeleniumTest/ex2/BaiduTest.py=utf-8

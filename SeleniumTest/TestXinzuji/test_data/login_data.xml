@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<info>
+	<explain>testXinzuji</explain>
+		<url>http://www.local.xinzuji.com/login/index</url>
+		<null uName="" passWd="">请输入账号</null>
+		<null_uname uName="" passWd="abc">请输入账号</null_uname>
+		<null_psd uName="shengsing" passWd="">请输入密码</null_psd>
+		<err uName="xxx" passWd="xxx">账号格式不正确</err>
+		<nomal uName="15817311208" passWd="123456"></nomal>
+</info>

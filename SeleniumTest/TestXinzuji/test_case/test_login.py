@@ -19,33 +19,34 @@ class test_Login(unittest.TestCase):
         # self.profile = webdriver.FirefoxProfile(self.profileDir)
         # self.driver = webdriver.Firefox(self.profile)
         self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(10)
         self.base_url = 'http://www.local.xinzuji.com/login/index'
-        self.verificationErrors = []
 
     def tearDown(self):
         self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
 
-#     def test_null(self):
-#         login.keyadd(self, 'null')
-# 
-#     def test_null_psd(self):
-#         login.keyadd(self, 'null_psd')
-# 
-#     def test_null_uname(self):
-#         login.keyadd(self, 'null_uname')
-# 
-#     def test_err(self):
-#         login.keyadd(self, 'err')
-#      
+    def test_null(self):
+        u'用户密码为空'
+        login.keyadd(self, 'null')
+  
+    def test_null_psd(self):
+        u'密码为空'
+        login.keyadd(self, 'null_psd')
+  
+    def test_null_uname(self):
+        u'用户名为空'
+        login.keyadd(self, 'null_uname')
+  
+    def test_err(self):
+        u'异常用户名密码'
+        login.keyadd(self, 'err')
+       
     def test_nomal(self):
+        u'正常登录'
         login.keyadd(self,'nomal')
         login.logout(self)
         
         
-
-
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
