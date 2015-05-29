@@ -14,24 +14,6 @@ import HTMLTestRunner
 import time,os
 from email.header import Header
 
-# def attachment(filename):
-#     fd = file(filename,"rb")
-#     mimetype,mimeencoding = mimetypes.guess_type(filename)
-#     if mimeencoding or (mimetype is None):
-#         mimetype = "application/octet-stream"
-#     maintype,subtype = mimetype.split("/")
-#     
-#     if maintype == "text":
-#         retval = MIMEText(fd.read(),_subtype = subtype)
-#     else:
-#         # 如果不是text
-#         retval = MIMEBase(maintype,subtype)
-#         retval.set_payload(fd.read())
-#         Encoders.encode_base64(retval)
-#     retval.add_header("Content-Disposition","attachment",filename = filename)
-#     fd.close()
-#     return retval
-
 
 def send_mail(file_new):
     
@@ -56,13 +38,12 @@ def send_mail(file_new):
     msgRoot['From'] = Sender
     
     
-        #open HTML
+    # add HTML
     body  = MIMEText(open (file_new, 'rb').read(),'html' , 'utf-8')
     msgRoot.attach(body)
     
-    # att
-
-    att = MIMEText(open('%s'%file_new, 'rb').read(), 'base64', 'utf-8')#添加附件
+    # add att
+    att = MIMEText(open('%s'%file_new, 'rb').read(), 'base64', 'utf-8')
     att["Content-Type"] = 'application/octet-stream'
     att["Content-Disposition"] = 'attachment; filename="%s"'%file_new
     msgRoot.attach(att)
