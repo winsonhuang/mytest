@@ -12,17 +12,21 @@ from email.mime.multipart import MIMEMultipart
 import unittest
 import HTMLTestRunner
 import time,os
+import ConfigParser
 from email.header import Header
 
 
 def send_mail(file_new):
     
+    cf = ConfigParser.ConfigParser()
+    cf.read("..//config//data.ini")
+    
     #item
-    SmtpServer = 'smtp.exmail.qq.com'
-    PopServer = ' pop.exmail.qq.com'
-    Sender ='<huasheng.huang@xinzuji.com>'
-    uName='huasheng.huang@xinzuji.com'
-    passWd='504248573a'
+    SmtpServer = cf.get("baseconf", "SmtpServer")
+    PopServer = cf.get("baseconf", "PopServer")
+    Sender = cf.get("baseconf", "Sender")
+    uName = cf.get("baseconf", "uName")
+    passWD = cf.get("baseconf", "passWD")
     
     Receiver = 'yulong.ding@xinzuji.com@xinzuji.com'   
 #    Receiver = 'haohui.wang@xinzuji.com@xinzuji.com'   
