@@ -26,7 +26,7 @@ def send_mail(file_new):
     PopServer = cf.get("baseconf", "PopServer")
     Sender = cf.get("baseconf", "Sender")
     uName = cf.get("baseconf", "uName")
-    passWD = cf.get("baseconf", "passWD")
+    passWd = cf.get("baseconf", "passWd")
     
     Receiver = 'yulong.ding@xinzuji.com@xinzuji.com'   
 #    Receiver = 'haohui.wang@xinzuji.com@xinzuji.com'   
