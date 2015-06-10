@@ -48,9 +48,7 @@ def send_report(testreport):
     result_dir = testreport
     lists = os.listdir(result_dir)
     lists.sort(key = lambda fn:os.path.getmtime(result_dir+fn))
-    print lists[-1]
     file_new = os.path.join(result_dir, lists[-1])
-    print file_new
     send_mail(file_new)
     
 def createSuite():
