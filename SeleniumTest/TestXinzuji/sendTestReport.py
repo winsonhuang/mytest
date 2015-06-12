@@ -17,16 +17,13 @@ from email.header import Header
 
 
 def send_mail(file_new):
-    
-    cf = ConfigParser.ConfigParser()
-    cf.read("..//config//data.ini")
-    
+     
     #item
-    SmtpServer = cf.get("baseconf", "SmtpServer")
-    PopServer = cf.get("baseconf", "PopServer")
-    Sender = cf.get("baseconf", "Sender")
-    uName = cf.get("baseconf", "uName")
-    passWd = cf.get("baseconf", "passWd")
+    SmtpServer = cp.get("baseconf", "SmtpServer")
+    PopServer = cp.get("baseconf", "PopServer")
+    Sender = cp.get("baseconf", "Sender")
+    uName = cp.get("baseconf", "uName")
+    passWd = cp.get("baseconf", "passWd")
     
     Receiver = 'yulong.ding@xinzuji.com@xinzuji.com'   
 #    Receiver = 'haohui.wang@xinzuji.com@xinzuji.com'   
@@ -82,7 +79,8 @@ def createSuite():
 def createTestReport(testreport):
     now = time.strftime(' %Y-%m-%d %H:%M:%S')
     filename = testreport+'result'+now+'.html'
-    fp = file(filename, 'wb')
+    print filename
+    fp = file(filename, 'w')
     runner = HTMLTestRunner.HTMLTestRunner(
                                            stream=fp,
                                            title=u'自动化测试报告',
@@ -92,8 +90,9 @@ def createTestReport(testreport):
     fp.close()
     
 if __name__ == '__main__':
-    test_dir = 'test_case'
-    testreport= '/home/winson/test_object/report/'
-    
+    cp = ConfigParser.ConfigParser()
+    cp.readfp(open(r'D:\test\test_object\data.ini'))
+    test_dir = cp.get("windows", "ConfRoot")
+    testreport= cp.get("windows", "ReportRoot")
     createTestReport(testreport)
     send_report(testreport)

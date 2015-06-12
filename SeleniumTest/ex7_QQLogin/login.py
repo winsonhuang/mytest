@@ -37,7 +37,7 @@ def login(self):
     dr.find_element_by_link_text("登录").click()
     dr.implicitly_wait(10)
     dr.find_element_by_id("TANGRAM__PSP_8__userName").send_keys("shengsing")
-    dr.find_element_by_id("TANGRAM__PSP_8__password").send_keys("504248573a")
+    dr.find_element_by_id("TANGRAM__PSP_8__password").send_keys("xxxxx")
     dr.find_element_by_id("TANGRAM__PSP_8__submit").click()
     dr.implicitly_wait(10)
     

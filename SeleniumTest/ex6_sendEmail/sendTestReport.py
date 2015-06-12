@@ -12,6 +12,8 @@ import unittest
 import HTMLTestRunner
 import time,os
 import ConfigParser
+
+
 from email.header import Header
 
 
@@ -77,8 +79,10 @@ def createTestReport(testreport):
     fp.close()
     
 if __name__ == '__main__':
-    test_dir = 'test_case'
-    testreport= '/home/winson/test_object/report/'
+    cp = ConfigParser.ConfigParser()
+    cp.readfp(open(r'D:\test\test_object\data.ini'))
+    test_dir = cp.get("windows", "ConfRoot")
+    testreport= cp.get("windows", "ReportRoot")
     
     createTestReport(testreport)
 #    send_report(testreport)

@@ -66,9 +66,9 @@ def clearList():
     bugList=[]
 
 
-checkURL.append('http://www.xinzuji.com/')
-checkURL.append('http://m.xinzuji.com/')
-checkURL.append('http://publish.xinzuji.com/')
+checkURL.append('http://www.local.xinzuji.com/')
+checkURL.append('http://m.local.xinzuji.com/')
+checkURL.append('http://publish.local.xinzuji.com/')
 
 findBug=re.compile(r'<h4>A PHP Error was encountered</h4>')
 findList=re.compile(r'<a href="/(.+?)"')
